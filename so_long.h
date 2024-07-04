@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:44:32 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/03 10:11:31 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:23:26 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 # define SO_LONG_H
 
 # ifndef MAX_LENGTH
-#  define MAX_LENGTH 720
+#  define MAX_LENGTH 580
 # endif
 
 # ifndef MAX_WIDTH
-#  define MAX_WIDTH 580
+#  define MAX_WIDTH 720
 # endif
 
 # include "minilibx-linux/mlx.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 typedef struct	s_data
 {
