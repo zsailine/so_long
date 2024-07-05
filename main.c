@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:42:21 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/04 15:43:49 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:13:52 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,19 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	my_close(int keycode, t_vars *vars, t_data img)
+int	my_close_tab(t_vars *vars)
 {
-	if (keycode == 'q')
+	mlx_destroy_image(vars->mlx, vars->img.img);
+	mlx_destroy_window(vars->mlx, vars->win);
+	mlx_destroy_display(vars->mlx);
+	printf("test\n");
+	exit(1);
+}
+int	my_close(int keycode, t_vars *vars)
+{
+	if (keycode == 65307)
 	{
-		printf("test\n");
-		mlx_destroy_image(vars->mlx, img.img);
-		mlx_destroy_window(vars->mlx, img.img);
-		mlx_destroy_display(vars->mlx);
-		return 0;
-		exit(0);
+		my_close_tab(vars);
 	}
 	return (0);
 }
@@ -58,35 +61,38 @@ void	draw_line(t_data *data)
 	}
 }
 
-int	main(void)
-{
-	t_vars	vars;
-	t_data	img;
-
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, MAX_WIDTH, MAX_LENGTH, "Hello world!");
-	img.img = mlx_new_image(vars.mlx, MAX_WIDTH, MAX_LENGTH);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-	draw_line(&img);
-	mlx_key_hook(vars.win, my_close, &vars);
-	mlx_loop(vars.mlx);
-}
-
 // int	main(void)
 // {
 // 	t_vars	vars;
 // 	t_data	img;
-// 	char	*relative_path = "./test.xpm";
-// 	int		img_width = MAX_WIDTH;
-// 	int		img_height = MAX_LENGTH;
 
 // 	vars.mlx = mlx_init();
 // 	vars.win = mlx_new_window(vars.mlx, MAX_WIDTH, MAX_LENGTH, "Hello world!");
-// 	img.img =  mlx_xpm_file_to_image(vars.mlx, relative_path, &img_width, &img_height);
+// 	img.img = mlx_new_image(vars.mlx, MAX_WIDTH, MAX_LENGTH);
 // 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	// draw_line(&img);
 // 	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-//  	mlx_loop(vars.mlx);
+// 	mlx_loop(vars.mlx);
 // }
+
+int	main(void)
+{
+	t_vars	vars;
+	t_data	img;
+	char	*relative_path = "./test.xpm";
+	int		img_width = MAX_WIDTH;
+	int		img_height = MAX_LENGTH;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, MAX_WIDTH, MAX_LENGTH, "Hello world!");
+	img.img =  mlx_xpm_file_to_image(vars.mlx, relative_path, &img_width, &img_height);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+ 	vars.img.img = img.img;
+	mlx_key_hook(vars.win, my_close, &vars);
+	draw_line(&img);
+	mlx_hook(vars.win, 17, 1L << 0, my_close_tab, &vars);
+	mlx_loop(vars.mlx);
+}
 
 

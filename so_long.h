@@ -40,6 +40,7 @@ typedef struct	s_vars
 {
 	void	*mlx;
 	void	*win;
+	t_data	img;
 }				t_vars;
 
 
