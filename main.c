@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:42:21 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/05 15:13:52 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/06 09:07:51 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,20 +79,22 @@ int	main(void)
 {
 	t_vars	vars;
 	t_data	img;
+	t_data	img1;
 	char	*relative_path = "./test.xpm";
 	int		img_width = MAX_WIDTH;
 	int		img_height = MAX_LENGTH;
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, MAX_WIDTH, MAX_LENGTH, "Hello world!");
+	img1.img = mlx_new_image(vars.mlx, MAX_WIDTH, MAX_LENGTH);
+	img1.addr =	mlx_get_data_addr(img1.img, &img1.bits_per_pixel, &img1.line_length, &img1.endian);	
 	img.img =  mlx_xpm_file_to_image(vars.mlx, relative_path, &img_width, &img_height);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
- 	vars.img.img = img.img;
+	mlx_put_image_to_window(vars.mlx, vars.win, img1.img, 0, 0);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 50, 50);
+	vars.img.img = img.img;
 	mlx_key_hook(vars.win, my_close, &vars);
-	draw_line(&img);
+	draw_line(&img1);
 	mlx_hook(vars.win, 17, 1L << 0, my_close_tab, &vars);
 	mlx_loop(vars.mlx);
 }
-
-
