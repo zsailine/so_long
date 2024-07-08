@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:44:32 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/04 15:23:26 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:12:11 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,20 @@
 # endif
 
 # include "minilibx-linux/mlx.h"
+# include "get_next_line/get_next_line.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-
-typedef struct	s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 typedef struct	s_vars
 {
 	void	*mlx;
 	void	*win;
-	t_data	img;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }				t_vars;
 
 
