@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 09:22:57 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/09 16:30:01 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:19:59 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,57 +80,57 @@ static int	ft_check_file(char *src)
 			while (j--)
 				cmp[z++] = src[i++];
 			if (ft_strcmp((char *)cmp, ".ber") == 0)
+			{
+				free(cmp);
 				return (1);
-			else
-				return (0);
+			}
+			free(cmp);
 		}
 	}
 	return (0);
 }
 
-// static char	**insert_map(char *src, int	size)
-// {
-// 	int		fd;
-// 	int		i;
-// 	char	**dest;
-
-// 	dest = malloc(sizeof(char *) * (size + 1));
-// 	i = 0;
-// 	fd = open(src, O_RDONLY);
-// 	while (1)
-// 	{
-// 		dest[i++] = get_next_line(fd);
-// 		if (dest[i] == NULL)
-// 			break ;
-// 	}
-// 	printf("%s\n", dest[i]);
-// 	dest[i] = '\0';
-// 	close (fd);
-// 	return (dest);
-// }
-
-int	init_map(char *src)
+static char	**insert_map(char *src, int	size)
 {
-	//t_map	*size;
-	//int		i;
+	int		fd;
+	int		i;
+	char	**dest;
 
-	//size = malloc(sizeof(t_map));
+	dest = malloc(sizeof(char *) * (size + 1));
+	i = 0;
+	fd = open(src, O_RDONLY);
+	while (1)
+	{
+		dest[i] = get_next_line(fd);
+		if (dest[i] == NULL)
+			break ;
+		i++;
+	}
+	close (fd);
+	return (dest);
+}
+
+t_map	*init_map(char *src, t_map *size)
+{
+	int		i;
+
 	if (get_map_size(src) == 0)
 	{
 		ft_printf("Error\nThis map doesn't exist!\n");
-		return (0);
+		return (free(size), NULL);
 	}
 	else if (ft_check_file(src) == 0)
 	{
 		ft_printf("Error\nFile not supported!\n");
-		return (0);
+		return (free(size), NULL);
 	}
 	else if (get_map_rect(src) == 0)
 	{
 		ft_printf("Error\nThis map is not rectangular!\n");
-		return (0);
+		return (free(size), NULL);
 	}
-	//i = get_map_size(src);
-	//size->map = insert_map(src, i);
-	return (1);
+	i = get_map_size(src);
+	size->map = insert_map(src, i);
+	i = 0;
+	return (size);
 }

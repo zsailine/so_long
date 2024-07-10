@@ -6,7 +6,7 @@
 #    By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/29 13:17:01 by zsailine          #+#    #+#              #
-#    Updated: 2024/07/09 13:13:56 by zsailine         ###   ########.fr        #
+#    Updated: 2024/07/10 15:49:47 by zsailine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FT_PRINTF = lib/ft_printf/libftprintf.a
 
 GET = lib/get_next_line/get_next_line.c lib/get_next_line/get_utils.c lib/get_next_line/get_next_line_utils.c
 
-SRC_M = src/map/window.c src/map/map.c
+SRC_M = src/map/window.c src/map/map.c src/map/map_init.c  src/map/final_init.c
 
 SRC = main.c
 
@@ -46,8 +46,10 @@ clean:
 	rm -f $(OBJ)
 	rm -f $(OBJ2)
 	rm -f $(OBJ3)
+	@make clean-C lib/ft_printf
 
 fclean: clean
+	@make fclean -C lib/ft_printf
 	rm -f $(NAME)
 
 re: fclean all

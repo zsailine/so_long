@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:25:42 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/09 14:25:14 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/10 09:38:03 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char		*get_next_line(int fd);
 char		*ft_strchr(const char *str, int character);
 char		*get_next_line(int fd);
 char		*ft_strchr(const char *str, int character);
+void		free_tab(char **stock);
 
 #endif

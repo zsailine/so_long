@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:42:21 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/09 16:28:25 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:19:51 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	main(int ac, char **av)
 {
 	t_vars	vars;
-	int	size;
+	t_map	*size;
 
 	if (ac == 2)
 	{
-		size = init_map(av[1]);
-		if (size == 0)
+		size = final_check(av[1]);
+		if (size == NULL)
 			exit(EXIT_FAILURE);
 		char	*relative_path = "assets/luffy-f.xpm";
 		int		img_width = 0;
