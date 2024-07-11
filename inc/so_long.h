@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:44:32 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/09 15:12:15 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:33:01 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 # include "../lib/minilibx-linux/mlx.h"
 # include "../lib/get_next_line/get_next_line.h"
-# include "../lib/ft_printf/ft_printf.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>

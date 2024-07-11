@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 09:22:57 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/10 16:19:59 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:33:48 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ int	get_map_size(char *src)
 		free(dest);
 		i++;
 	}
-	close (fd);
+	close(fd);
 	return (i);
 }
 
 int	get_map_rect(char *src)
 {
-	int 	fd;
+	int		fd;
 	size_t	tmp;
 	size_t	size;
-	char 	*dest;
+	char	*dest;
 
 	fd = open(src, O_RDONLY);
 	dest = get_next_line(fd);
@@ -55,7 +55,7 @@ int	get_map_rect(char *src)
 			break ;
 		free(dest);
 	}
-	close (fd);
+	close(fd);
 	if (tmp != size)
 		return (0);
 	return (tmp);
@@ -90,7 +90,7 @@ static int	ft_check_file(char *src)
 	return (0);
 }
 
-static char	**insert_map(char *src, int	size)
+char	**insert_map(char *src, int size)
 {
 	int		fd;
 	int		i;
@@ -106,27 +106,27 @@ static char	**insert_map(char *src, int	size)
 			break ;
 		i++;
 	}
-	close (fd);
+	close(fd);
 	return (dest);
 }
 
 t_map	*init_map(char *src, t_map *size)
 {
-	int		i;
+	int	i;
 
 	if (get_map_size(src) == 0)
 	{
-		ft_printf("Error\nThis map doesn't exist!\n");
+		ft_putendl_fd("Error\nThis map doesn't exist!\n", 2);
 		return (free(size), NULL);
 	}
 	else if (ft_check_file(src) == 0)
 	{
-		ft_printf("Error\nFile not supported!\n");
+		ft_putendl_fd("Error\nFile not supported!\n", 2);
 		return (free(size), NULL);
 	}
 	else if (get_map_rect(src) == 0)
 	{
-		ft_printf("Error\nThis map is not rectangular!\n");
+		ft_putendl_fd("Error\nThis map is not rectangular!\n", 2);
 		return (free(size), NULL);
 	}
 	i = get_map_size(src);
