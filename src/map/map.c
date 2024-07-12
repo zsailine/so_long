@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 09:22:57 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/11 14:33:48 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:23:48 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,17 +116,17 @@ t_map	*init_map(char *src, t_map *size)
 
 	if (get_map_size(src) == 0)
 	{
-		ft_putendl_fd("Error\nThis map doesn't exist!\n", 2);
+		ft_putendl_fd("Error\nThis map doesn't exist!", 2);
 		return (free(size), NULL);
 	}
 	else if (ft_check_file(src) == 0)
 	{
-		ft_putendl_fd("Error\nFile not supported!\n", 2);
+		ft_putendl_fd("Error\nFile not supported!", 2);
 		return (free(size), NULL);
 	}
 	else if (get_map_rect(src) == 0)
 	{
-		ft_putendl_fd("Error\nThis map is not rectangular!\n", 2);
+		ft_putendl_fd("Error\nThis map is not rectangular!", 2);
 		return (free(size), NULL);
 	}
 	i = get_map_size(src);

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   image.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 10:44:32 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/12 09:25:04 by zsailine         ###   ########.fr       */
+/*   Created: 2024/07/12 09:23:33 by zsailine          #+#    #+#             */
+/*   Updated: 2024/07/12 15:43:46 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
+#ifndef IMAGE_H
 
-# define SO_LONG_H
+# define IMAGE_H
 
-# include "../lib/minilibx-linux/mlx.h"
-# include "../lib/get_next_line/get_next_line.h"
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include "strut.h"
-# include "window.h"
-# include "map.h"
-# include "image.h"
+# include "so_long.h"
 
-#endif 
+void		put_image(char **av, t_vars game);
+void		get_image(t_vars *game);
+void		draw_image(int x, int y, void *img, t_vars game);
+
+#endif
