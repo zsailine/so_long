@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 10:42:21 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/12 16:05:50 by zsailine         ###   ########.fr       */
+/*   Created: 2024/07/16 11:37:48 by zsailine          #+#    #+#             */
+/*   Updated: 2024/07/16 14:01:25 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ int	main(int ac, char **av)
 		game.map = final_check(av[1]);
 		if (game.map == NULL)
 			exit(EXIT_FAILURE);
+		ft_putendl_fd("Oh no Zorro get lost again!", 1);
+		ft_putendl_fd("Help him go back to his universe.", 1);
 		game.width = (get_map_rect(av[1]) - 1) * 50;
 		game.height = (get_map_size(av[1])) * 50;
-		game = init_game(game);
-		put_image(game.map->map, game);
-		hook_game(game);
+		game = init_game1(game);
+		get_image1(&game);
+		put_image1(&game);
+		hook_game1(game);
 	}
 	ft_putendl_fd("Error\nWrong param", 2);
 	return (0);

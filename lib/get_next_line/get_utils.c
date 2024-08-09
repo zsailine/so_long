@@ -54,3 +54,17 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write (fd, "\n", 1);
 }
+
+void	ft_putnbr(int nbr)
+{
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
+	else if (nbr >= 0 && nbr <= 9)
+	{
+		nbr += 48;
+		write (1, &nbr, 1);
+	}
+}

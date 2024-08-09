@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 09:50:29 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/11 14:33:48 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:05:42 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	check_closed1(char *src, char **map)
 
 	y = get_map_size(src) - 1;
 	i = 0;
-	x = ft_strlen(map[1]) - 2;
+	x = ft_strlen(map[0]) - 2;
 	while (map[y][i] != '\0')
 	{
 		if (map[y][i] == '1' || map[y][i] == '\n')

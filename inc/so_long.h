@@ -6,7 +6,7 @@
 /*   By: zsailine <zsailine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:44:32 by zsailine          #+#    #+#             */
-/*   Updated: 2024/07/12 09:25:04 by zsailine         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:23:03 by zsailine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 # define SO_LONG_H
 
-# include "../lib/minilibx-linux/mlx.h"
 # include "../lib/get_next_line/get_next_line.h"
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
+# include "../lib/minilibx-linux/mlx.h"
 # include "strut.h"
-# include "window.h"
-# include "map.h"
 # include "image.h"
+# include "map.h"
+# include "move.h"
+# include "window.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-#endif 
+#endif
